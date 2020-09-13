@@ -1,0 +1,126 @@
+﻿@page
+@model IndexModel
+@{
+//ViewData["Title"] = "Home page";
+}
+
+<!--<div class="header">
+    <h2></h2>
+</div>
+
+<div class="content">
+    <br>
+</div>
+ -->
+
+        <div id="chat_window" class="row justify-content-center" style="visibility: hidden;">
+            <!--  -->
+            <div class="col-md-8 col-xl-6">
+                <div id="chat_window2" class="card">
+                    <div hidden id="userInput"> </div>
+                    <div id="chat_window2draggable_part" class="card-header msg_head">
+                        <div class="d-flex bd-highlight">
+                            <div class="img_cont" onclick="changeName()">
+                                <img src="~/img/standard_user.png" class="rounded-circle user_img">
+                                <span class="online_icon"></span>
+                            </div>
+                            <div class="user_info">
+                                <span>Chat with Tech Support</span>
+                                <p id="msg_count">0 Messages</p>
+                            </div>
+                            <div class="video_cam row">
+                                <span title="Download Chat Log" id="save_log_button">
+                                    <i class="far fa-copy"></i>
+                                </span>
+                                <span onclick="notifyMe()"><i class="fas fa-video"></i></span>
+                                <span onclick="createNewChatWindow()"><i class="far fa-window-restore"></i></span>
+                                <span title="Open Chat Settings" onclick="hide_UnhideButton('chat_window')" data-toggle="modal"
+                                      data-target="#settingsModal"><i class="fas fa-wrench"></i></span>
+                            </div>
+                        </div>
+                        <span title="Minimize chat" id="action_menu_btn" onclick="hide_UnhideButton('chat_window')"><i
+                                class="fas fa-ellipsis-v"></i></span>
+                        <div class="action_menu">
+                            <ul>
+                                <li><i class="fas fa-user-circle"></i> View profile</li>
+                                <li><i class="fas fa-users"></i> Add to close friends</li>
+                                <li><i class="fas fa-plus"></i> Add to group</li>
+                                <li><i class="fas fa-ban"></i> Block</li>
+                            </ul>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="myBar"></div>
+                        </div>
+                    </div>
+                    <div id="messagesList" class="card-body msg_card_body">
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <div title="Send Image" id="fileinput" class="input-group-append">
+                                <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+                            </div>
+                            <textarea id="messageInput" name="" class="form-control type_msg" tabindex="-1"
+                                placeholder="Type your message..."></textarea>
+                            <div title="Send Message" id="sendButton" class="input-group-append">
+                                <span class="input-group-text send_btn">
+                                    <i class="fas fa-location-arrow"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div id="blip-chat-container">
+        <div id="blip-chat-open-iframe" onclick="hide_UnhideButton('chat_window')" style="height: 70px; visibility: visible; opacity: 1;">
+            <div id="blip-chat-notifications" style="opacity: 0;">0</div>
+            <img id="blip-chat-icon"
+                src="~/img/chat_balloon.svg"
+                alt="" style="display: block;">
+        </div>
+    </div>
+<!-- Settings Modal -->
+<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Chat Settings</h5>
+                <button type="button" class="close" onclick="hide_UnhideButtonv2('chat_window')" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p id="display_name" class="display_name">Current Name: </p>
+                    <button onclick="changeName()">Change Name</button>
+
+                </div>
+
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="hide_UnhideButtonv2('chat_window')" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<span id="float-chat-text" visibility: visible>ACESSE <br> O CHAT</span>
+<!-- <div onclick="hide_UnhideButton('chat_window')" id="fixedbutton">
+    <span class="input-group-text send_btn">
+        <i class="fas fa-ellipsis-v"></i>
+    </span>
+</div>
+-->
+<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+-->
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+<!-- Section Styles {
+
+    <link href="~/css/chat_style.css" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+} -->
